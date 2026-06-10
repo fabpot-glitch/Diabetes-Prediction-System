@@ -16,9 +16,7 @@ def home():
 def predict():
 
     values = [float(x) for x in request.form.values()]
-
     data = np.array(values).reshape(1, -1)
-
     data = scaler.transform(data)
 
     prediction = model.predict(data)
@@ -34,5 +32,5 @@ def predict():
     )
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 7860))
     app.run(host="0.0.0.0", port=port)
