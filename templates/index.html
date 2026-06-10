@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Diabetes Risk Evaluator | Smart Predictor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="header-section">
+        <h1>
+            <i class="fas fa-heartbeat"></i> 
+            DiabeatAI
+        </h1>
+        <div class="subhead">
+            <i class="fas fa-microchip"></i> ML-based risk assessment · Real-time insights
+        </div>
+    </div>
+
+    <form id="predictForm" action="/predict" method="POST">
+        <!-- Row 1: Pregnancies + Glucose -->
+        <div class="form-row">
+            <div class="input-field">
+                <label><i class="fas fa-female"></i> Pregnancies</label>
+                <input type="number" name="Pregnancies" id="pregnancies" placeholder="e.g., 2" min="0" max="20" step="1" required>
+                <div class="helper-tip">Number of times pregnant</div>
+            </div>
+            <div class="input-field">
+                <label><i class="fas fa-tint"></i> Glucose</label>
+                <input type="number" name="Glucose" id="glucose" placeholder="mg/dL 70-200" step="1" required>
+                <div class="helper-tip" id="glucoseHint">Normal range: 70-140 mg/dL</div>
+            </div>
+        </div>
+
+        <!-- Row 2: BloodPressure + SkinThickness -->
+        <div class="form-row">
+            <div class="input-field">
+                <label><i class="fas fa-heart"></i> Blood Pressure</label>
+                <input type="number" name="BloodPressure" id="bp" placeholder="mm Hg (resting)" step="1" required>
+                <div class="helper-tip">Systolic / diastolic indicator</div>
+            </div>
+            <div class="input-field">
+                <label><i class="fas fa-layer-group"></i> Skin Thickness</label>
+                <input type="number" name="SkinThickness" id="skinThick" placeholder="Triceps fold (mm)" step="1" required>
+                <div class="helper-tip">Triceps skin fold thickness</div>
+            </div>
+        </div>
+
+        <!-- Row 3: Insulin + BMI -->
+        <div class="form-row">
+            <div class="input-field">
+                <label><i class="fas fa-syringe"></i> Insulin</label>
+                <input type="number" name="Insulin" id="insulin" placeholder="µU/mL" step="1" required>
+                <div class="helper-tip">2-hour serum insulin</div>
+            </div>
+            <div class="input-field">
+                <label><i class="fas fa-weight-scale"></i> BMI</label>
+                <input type="number" step="any" name="BMI" id="bmi" placeholder="Body Mass Index (18.5-40)" required>
+                <div class="helper-tip">Weight (kg) / height² (m)</div>
+            </div>
+        </div>
+
+        <!-- Row 4: DPF + Age -->
+        <div class="form-row">
+            <div class="input-field">
+                <label><i class="fas fa-chart-line"></i> Diabetes Pedigree</label>
+                <input type="number" step="any" name="DPF" id="dpf" placeholder="0.1 - 2.5" required>
+                <div class="helper-tip">Genetic risk score</div>
+            </div>
+            <div class="input-field">
+                <label><i class="fas fa-calendar-alt"></i> Age</label>
+                <input type="number" name="Age" id="age" placeholder="Years" min="1" max="120" required>
+                <div class="helper-tip">Age in years</div>
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn">
+            <i class="fas fa-chart-simple"></i> Assess Diabetes Risk
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </form>
+
+    <!-- Dynamic Prediction Result Area -->
+    <div id="resultContainer">
+        {% if prediction_text %}
+        <div class="result-card" id="dynamicResult">
+            <h2>{{ prediction_text }}</h2>
+            <div class="result-sub">Interpretation based on clinical parameters</div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Live Risk Insight Widget -->
+    <div id="liveRecoBox" class="live-reco">
+        <div class="rec-icon">💡</div>
+        <div class="rec-text"><strong>Live insight:</strong> Fill in your values to see risk preview</div>
+    </div>
+
+    <div class="footer-note">
+        <i class="fas fa-shield-alt"></i> Machine learning risk estimation · Educational purpose · Always consult a physician
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

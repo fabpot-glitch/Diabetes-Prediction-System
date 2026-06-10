@@ -1,0 +1,284 @@
+/* style.css - Complete working version */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f6f9;
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* Main container */
+.container {
+    width: 550px;
+    max-width: 95%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px 28px 35px;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+/* Header styling */
+.header-section {
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1a5f7a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.subhead {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #5e7a93;
+    border-bottom: 1px solid #e9edf2;
+    padding-bottom: 12px;
+    margin-top: 6px;
+}
+
+/* Form rows - two column layout */
+.form-row {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.form-row .input-field {
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Input field wrapper */
+.input-field {
+    margin-bottom: 18px;
+}
+
+.input-field label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1f4a6e;
+    margin-bottom: 6px;
+}
+
+.input-field label i {
+    width: 20px;
+    color: #2c8f6e;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 0;
+    border: 1.8px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    background: #fff;
+    font-weight: 500;
+    color: #0f2b3a;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2c8f6e;
+    box-shadow: 0 0 0 3px rgba(44, 143, 110, 0.2);
+}
+
+input::placeholder {
+    color: #b9c4d1;
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+.helper-tip {
+    font-size: 0.7rem;
+    color: #7a8e9e;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 14px 12px;
+    background: linear-gradient(95deg, #1e6f5c, #2c9a7a);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.2s;
+    box-shadow: 0 5px 12px rgba(28, 89, 73, 0.2);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+button:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    background: linear-gradient(95deg, #155a4b, #238867);
+    box-shadow: 0 8px 18px rgba(28, 89, 73, 0.25);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Result Cards */
+.result-card {
+    text-align: center;
+    margin-top: 28px;
+    padding: 18px 20px;
+    border-radius: 24px;
+    background: #f8fafc;
+    border-left: 6px solid;
+    transition: 0.2s;
+}
+
+.result-low {
+    border-left-color: #22c55e;
+    background: #f0fdf4;
+}
+
+.result-moderate {
+    border-left-color: #f97316;
+    background: #fff7ed;
+}
+
+.result-high {
+    border-left-color: #ef4444;
+    background: #fef2f2;
+}
+
+.result-card h2 {
+    text-align: center;
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.result-sub {
+    font-size: 0.85rem;
+    color: #4b5e77;
+}
+
+/* Live recommendation widget */
+.live-reco {
+    margin-top: 24px;
+    background: #eef2f9;
+    border-radius: 20px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    border: 1px solid #dfe7ef;
+}
+
+.rec-icon {
+    font-size: 1.7rem;
+}
+
+.rec-text {
+    font-weight: 500;
+    color: #1a4d6b;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* Footer note */
+.footer-note {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.7rem;
+    color: #6b8a9e;
+    background: #f0f4f9;
+    padding: 10px 12px;
+    border-radius: 60px;
+}
+
+/* Loading animation */
+.loading-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 18px;
+        margin: 20px auto;
+    }
+
+    .form-row {
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    .form-row .input-field {
+        min-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .live-reco {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}
+
+/* Input highlight styles */
+input.glucose-warning {
+    border-color: #f97316;
+    background-color: #fffaf0;
+}
+
+input.glucose-critical {
+    border-color: #dc2626;
+    background-color: #fef2f2;
+}
